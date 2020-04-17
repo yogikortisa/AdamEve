@@ -1,0 +1,62 @@
+<!-- Created using vQmod XML Generator by UKSB - http://www.opencart-extensions.co.uk best edited in notepad++//-->
+<modification>
+	<id><![CDATA[cloud-zoom-simple-v3 vqmod]]></id>
+	<version><![CDATA[3]]></version>
+	<author><![CDATA[webrasta]]></author>
+<!--Header section. The following code insert cloud-zoom.css, jquery.min.js and cloud-zoom.1.0.2.js into the default header -->
+	<file name="catalog/view/theme/*/template/common/header.tpl">
+		<operation>
+			<search position="before"><![CDATA[</head>]]></search>
+			<add><![CDATA[<link href="catalog/view/javascript/jquery/cloud-zoom/cloud-zoom.css" rel="stylesheet" type="text/css" />
+<script type="text/JavaScript" src="catalog/view/javascript/jquery/cloud-zoom/cloud-zoom.1.0.2.js"></script>]]></add>
+		</operation>
+	</file>
+<!--Product template. The following code edits the default product template namely the main product image and adds a link for viewing images through fancybox static viewer-->
+	<file name="catalog/view/theme/*/template/product/product.tpl">
+		<operation>
+			<search position="replace" offset="1"><![CDATA[<?php if ($thumb) { ?>]]></search>
+<!--Customise by adding parameters after rel=" find parameters online at http://www.professorcloud.com/mainsite/cloud-zoom-integration.htm don't forget to seperate with ,s-->
+			<add><![CDATA[
+	<?php if ($thumb) { ?>
+	<div class="image"><a href="<?php echo $zoom_image; ?>" title="<?php echo $heading_title; ?>" class="cloud-zoom" id='zoom1' rel="adjustX: 10, adjustY:-4, tint:'#000000',tintOpacity:0.2, zoomWidth:660"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" id="image" /></a></div>   
+	  ]]></add>
+		</operation>
+<!--The following code adds the primary image into the additional image div-->
+		<operation>
+			<search position="before"><![CDATA[<?php foreach ($images as $image) { ?>]]></search>
+			<add><![CDATA[
+		<a href="<?php echo $zoom_image; ?>" title="<?php echo $heading_title; ?>" class="cloud-zoom-gallery" rel="useZoom: 'zoom1', smallImage: '<?php echo $thumb; ?>' "><img src="<?php echo $thumbadditional; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" id="image" onclick="largelink('<?php echo $popup; ?>')"/></a>
+		]]></add>
+		</operation>
+<!--The following code edits the additional images to cloud-zoom code-->
+		<operation>
+			<search position="replace" offset="1"><![CDATA[<?php foreach ($images as $image) { ?>]]></search>
+			<add><![CDATA[
+		<?php foreach ($images as $image) { ?>
+		<a href="<?php echo $image['zoom_image']; ?>" title="<?php echo $heading_title; ?>" class="cloud-zoom-gallery" rel="useZoom: 'zoom1', smallImage: '<?php echo $image['thumbimage']; ?>' "><img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" onclick="largelink('<?php echo $image['popup']; ?>')" /></a>	
+		]]></add>
+		</operation>
+	</file>
+<!-- The following requests opencart to make additional images, 1000 x 1000 for cloudzoom and other thumbnails for cloudzoom -->
+	<file name="catalog/controller/product/product.php">
+        <operation>
+            <search position="after"><![CDATA[$this->load->model('tool/image');]]></search>
+            <add><![CDATA[
+			if ($product_info['image']) {
+				$this->data['zoom_image'] = $this->model_tool_image->resize($product_info['image'], 2000, 2000);								
+				$this->data['thumbadditional'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_additional_width'), $this->config->get('config_image_additional_height'));								
+			} else {
+				$this->data['zoom_image'] = '';
+				$this->data['thumbadditional'] = '';				
+			}		
+            ]]></add>
+        </operation>
+		<operation><!-- For each additional image -->
+            <search position="after"><![CDATA[$this->data['images'][] = array(]]></search>
+            <add><![CDATA[			
+			'zoom_image' => $this->model_tool_image->resize($result['image'] , 2000, 2000),
+			'thumbimage' => $this->model_tool_image->resize($result['image'] , $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height')),			
+            ]]></add>
+        </operation>
+	</file>
+</modification>

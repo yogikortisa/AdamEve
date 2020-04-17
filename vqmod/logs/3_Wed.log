@@ -1,0 +1,30 @@
+---------- Date: 2014-01-29 14:08:33 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /opencart/index.php?route=product/product&amp;product_id=42
+MOD DETAILS:
+   modFile   : C:\xampp\htdocs\opencart\vqmod/xml/cloud-zoom-simple-v3.xml
+   id        : cloud-zoom-simple-v3 vqmod
+   version   : 3
+   vqmver    : 
+   author    : webrasta
+
+File Name    : catalog/view/theme/*/template/product/product.tpl(1)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php foreach ($images as $image) { ?>
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2014-01-29 14:08:51 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /opencart/index.php?route=product/product&amp;product_id=42
+MOD DETAILS:
+   modFile   : C:\xampp\htdocs\opencart\vqmod/xml/cloud-zoom-simple-v3.xml
+   id        : cloud-zoom-simple-v3 vqmod
+   version   : 3
+   vqmver    : 
+   author    : webrasta
+
+File Name    : catalog/view/theme/*/template/product/product.tpl(1)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <?php foreach ($images as $image) { ?>
+
+----------------------------------------------------------------------
+
+

@@ -1,0 +1,10 @@
+2014-01-09 11:06:15 - PHP Notice:  Error: Could not load language english! in C:\xampp\htdocs\opencart\vqmod\vqcache\vq2-system_library_language.php on line 39
+2014-01-09 11:06:15 - PHP Notice:  Error: Could not load language setting/store! in C:\xampp\htdocs\opencart\vqmod\vqcache\vq2-system_library_language.php on line 39
+2014-01-09 11:06:15 - PHP Notice:  Error: Could not load language common/header! in C:\xampp\htdocs\opencart\vqmod\vqcache\vq2-system_library_language.php on line 39
+2014-01-09 11:06:15 - PHP Notice:  Error: Could not load language common/footer! in C:\xampp\htdocs\opencart\vqmod\vqcache\vq2-system_library_language.php on line 39
+2014-01-29 15:33:22 - PHP Notice:  Undefined variable: options in C:\xampp\htdocs\opencart\catalog\view\theme\default\template\checkout\cart.tpl on line 91
+2014-01-31 12:25:34 - PHP Notice:  Undefined variable: product in C:\xampp\htdocs\opencart\catalog\view\theme\default\template\module\featured.tpl on line 11
+2014-01-31 12:25:34 - PHP Notice:  Undefined variable: product in C:\xampp\htdocs\opencart\catalog\view\theme\default\template\module\featured.tpl on line 26
+2014-01-31 12:25:34 - PHP Notice:  Undefined variable: product in C:\xampp\htdocs\opencart\catalog\view\theme\default\template\module\featured.tpl on line 26
+2014-01-31 12:25:34 - PHP Notice:  Undefined variable: product in C:\xampp\htdocs\opencart\catalog\view\theme\default\template\module\featured.tpl on line 34
+2014-01-31 12:25:34 - PHP Notice:  Undefined variable: product in C:\xampp\htdocs\opencart\catalog\view\theme\default\template\module\featured.tpl on line 39
